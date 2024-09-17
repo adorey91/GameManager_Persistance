@@ -11,4 +11,5 @@ public class PlayerData
     public float multiplier;
     public float stamina;
     public float ammo;
+    public string levelName;
 }

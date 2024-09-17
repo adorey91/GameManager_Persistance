@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour
     public float multiplier;
     public float stamina;
     public float ammo;
-   
+    private static int gameManagerCount = 0; // game manager count
+    public string levelName;
+
+
 
     private void Awake()
     {
@@ -32,6 +35,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (levelName != SceneManager.GetActiveScene().name)
+            levelName = SceneManager.GetActiveScene().name;
+
+        gameManagerCount = GameObject.FindGameObjectsWithTag("GameManager").Length;
         if (Input.GetKeyDown(KeyCode.Alpha1)) SceneManager.LoadScene(0); // press 1
         if (Input.GetKeyDown(KeyCode.Alpha2)) SceneManager.LoadScene(1); // press 2
         if (Input.GetKeyDown(KeyCode.Alpha3)) SceneManager.LoadScene(2); // press 3
@@ -48,6 +55,7 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(10, 465, 300, 60), "Multiplier: x" + multiplier);
         GUI.Label(new Rect(10, 605, 300, 60), "Stamina: " + stamina);
         GUI.Label(new Rect(10, 745, 300, 60), "Ammo: " + ammo);
+        GUI.Label(new Rect(10, 845, 400, 60), "Game Manager Count: " + gameManagerCount);
     }
 
     public void Save()
@@ -62,7 +70,7 @@ public class GameManager : MonoBehaviour
         data.score = score;
         data.multiplier = multiplier;
         data.stamina = stamina;
-
+        data.levelName = levelName;
         bf.Serialize(file, data);
         file.Close();
     }
@@ -81,7 +89,11 @@ public class GameManager : MonoBehaviour
             score = data.score;
             multiplier = data.multiplier;
             stamina = data.stamina;
+            levelName = data.levelName;
         }
+
+        if (levelName != SceneManager.GetActiveScene().name)
+            SceneManager.LoadScene(levelName);
     }
 
     private static string GetSavePath()

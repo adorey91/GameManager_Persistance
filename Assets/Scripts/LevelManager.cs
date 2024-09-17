@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
                 if (GUI.Button(new Rect(1020, 430, 600, 60), "Level 3"))
                     SceneManager.LoadScene(3);
                 break;
+
             case "Level_1":
                 if (GUI.Button(new Rect(1020, 290, 600, 60), "Main Menu"))
                     SceneManager.LoadScene(0);
@@ -45,6 +46,7 @@ public class LevelManager : MonoBehaviour
                 if (GUI.Button(new Rect(1020, 430, 600, 60), "Level 3"))
                     SceneManager.LoadScene(3);
                 break;
+
             case "Level_2":
                 if (GUI.Button(new Rect(1020, 290, 600, 60), "Main Menu"))
                     SceneManager.LoadScene(0);
@@ -53,6 +55,7 @@ public class LevelManager : MonoBehaviour
                 if (GUI.Button(new Rect(1020, 430, 600, 60), "Level 3"))
                     SceneManager.LoadScene(3);
                 break;
+
             case "Level_3":
                 if (GUI.Button(new Rect(1020, 290, 600, 60), "Main Menu"))
                     SceneManager.LoadScene(0);
@@ -60,7 +63,6 @@ public class LevelManager : MonoBehaviour
                     SceneManager.LoadScene(1);
                 if (GUI.Button(new Rect(1020, 430, 600, 60), "Level 2"))
                     SceneManager.LoadScene(2);
-
                 break;
         }
 
@@ -75,6 +77,5 @@ public class LevelManager : MonoBehaviour
             sceneToLoad = previousSceneIndex;
             SceneManager.LoadScene(sceneToLoad);
         }
-
     }
 }
