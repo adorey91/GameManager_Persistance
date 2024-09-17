@@ -92,8 +92,9 @@ public class GameManager : MonoBehaviour
             levelName = data.levelName;
         }
 
-        if (levelName != SceneManager.GetActiveScene().name)
-            SceneManager.LoadScene(levelName);
+        // Could be used to load saved scene
+        // if (levelName != SceneManager.GetActiveScene().name)
+        //     SceneManager.LoadScene(levelName);
     }
 
     private static string GetSavePath()
