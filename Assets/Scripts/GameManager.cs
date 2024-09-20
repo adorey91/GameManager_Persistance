@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float health;
     public float experience;
     public float score;
-    public float multiplier;
+    public float multiplier = 1;
     public float stamina;
     public float ammo;
     private static int gameManagerCount = 0; // game manager count
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         data.score = score;
         data.multiplier = multiplier;
         data.stamina = stamina;
+        data.ammo = ammo;
         data.levelName = levelName;
         bf.Serialize(file, data);
         file.Close();
@@ -89,6 +90,7 @@ public class GameManager : MonoBehaviour
             score = data.score;
             multiplier = data.multiplier;
             stamina = data.stamina;
+            ammo = data.ammo;
             levelName = data.levelName;
         }
 
